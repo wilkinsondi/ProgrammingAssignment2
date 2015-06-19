@@ -1,18 +1,15 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This function 1) creates and sets the value of a matrix, then 2) gets the value of the matrix
+## The function then processes to set the inverse (using the solve function), and then get the inverse.
 
-## Write a short comment describing this function = set the value of a matrix
-## get the value of the matrix, set the inverse, get the inverse. 
-
-makeVector <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
     x <<- y
     m <<- NULL
   }
   get <- function() x
-  setmean <- function(solve) m <<- solve
-  getmean <- function() m
+  setinverse <- function(solve) m <<- solve
+  getinverse <- function() m
   list(set = set, get = get,
        setinverse= setinverse,
        getinverse = getinverse)
@@ -20,7 +17,8 @@ makeVector <- function(x = matrix()) {
 
 
 
-## Write a short comment describing this function
+## This function looks for an existing solution for the inverse.
+## If it does not exist, the inverse is calculated and stored to the cache, 
 
 cacheSolve <- function(x, ...) {
   m <- x$getinverse()
